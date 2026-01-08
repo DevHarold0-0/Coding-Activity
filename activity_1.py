@@ -8,7 +8,7 @@ UNITS = "metric"
 
 
 def get_weather_by_city(city_name: str):
-    """Fetch current weather data for a city from OpenWeather API."""
+    """Fetch current weather data for any city from OpenWeather API."""
     if not API_KEY:
         print("ERROR: OPENWEATHER_API_KEY environment variable not set.")
         return None
@@ -47,7 +47,7 @@ def get_weather_by_city(city_name: str):
 
 
 def print_weather(weather):
-    """Display weather information in a formatted way."""
+    """Display weather information."""
     if not weather:
         return
     
@@ -142,13 +142,12 @@ def update_favourites(favourites):
 
 
 def main():
-    """Main CLI menu loop."""
     if not API_KEY:
         print("ERROR: Set OPENWEATHER_API_KEY environment variable first!")
         print("  export OPENWEATHER_API_KEY='your_api_key_here'")
         sys.exit(1)
     
-    favourites = []  # In-memory storage
+    favourites = []  
     
     while True:
         print("\n" + "WEATHER CLI".center(50, "="))
